@@ -1,6 +1,10 @@
 # PLang Custom Modules Guide
 
-Welcome to the PLang Custom Modules repository! This guide is tailored to assist developers in crafting and incorporating custom modules into PLang, thereby broadening its utility with bespoke algorithms and functionalities. Whether your goal is to integrate complex mathematical operations, leverage existing libraries, or introduce novel features, this guide will lead you through the necessary steps, illustrated by the example module `ComplexAlgorithm`.
+This guide is for developers who want to extend PLang by creating custom modules. 
+
+By following these steps, you can integrate your own algorithms or libraries as modules in PLang, 
+
+Below we will be creating a module called ComplexAlgorithm as an example.
 
 ## Initial Setup
 
