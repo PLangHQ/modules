@@ -1,0 +1,26 @@
+Start
+/ connect to ssh using username and password, then forward requests going through port
+- connect to ssh, 
+    host: example.org, port: 22, 
+    username:  %Settings.SshUsername%, 
+    password: %Settings.SshPassword%
+- send ssh command 'ls', write to %currentDir%
+- write out %currentDir%
+/ connect to ssh using privatekey
+- read file 'privatekey.txt', into %sshPrivateKey%
+- connect to ssh, 
+    name: 'sshWithPrivateKey'
+    host: example2.org, port: 22, username: root, 
+    private key: %sshPrivateKey%, private key passphrase: %Settings.PrivateKeyPassphrase%
+- send ssh command 'ls', write to %currentDir%
+- write out %currentDir%
+/ lets forward specific port after we connect, this case to MySQL instance, allowing query to db
+- connect to ssh, 
+    name: 'forwardSsh'
+    host: example.org, port: 22, 
+    username:  %Settings.SshUsername%, 
+    password: %Settings.SshPassword%
+    forward port: 3306, forward host: 10.0.0.1
+- create datasource 'MySqlDb'
+- select * from users, write to %users%
+- write out %users%

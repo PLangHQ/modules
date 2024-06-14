@@ -1,0 +1,13 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/QRCode/.vs
+/QRCode/bin/Debug/net8.0
+/QRCode/obj
+/SshModule/.vs
+/SshModule/bin
+/SshModule/obj
+SshModule/SshModule.v3.ncrunchsolution.user
+QRCode/ClassLibrary1.v3.ncrunchsolution.user
+QRCode/ClassLibrary1.v3.ncrunchsolution.user

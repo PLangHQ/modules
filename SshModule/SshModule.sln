@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34723.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SshModule", "SshModule.csproj", "{19A9AC16-6F88-44BF-A609-B98F23FF2D0C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{19A9AC16-6F88-44BF-A609-B98F23FF2D0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19A9AC16-6F88-44BF-A609-B98F23FF2D0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19A9AC16-6F88-44BF-A609-B98F23FF2D0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19A9AC16-6F88-44BF-A609-B98F23FF2D0C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A24BCEC5-A468-4D01-A369-B9122A704558}
+	EndGlobalSection
+EndGlobal
