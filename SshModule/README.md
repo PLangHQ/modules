@@ -1,17 +1,3 @@
-Here's the continuation and completion of the README.md for your SshModule:
-
----
-
-## Getting Help
-For assistance and more information on using the SshModule, please visit the [Plang Discussion forum](https://github.com/orgs/PLangHQ/discussions) or join the [Discord community](https://discord.gg/A8kYUymsDD).
-
-## License
-This project is licensed under the MIT License. See the `LICENSE` file for details.
-
----
-
-# Example README.md
-
 # SshModule
 
 ## Overview
@@ -25,10 +11,10 @@ The SshModule allows you to establish SSH connections and forward ports using th
   ```
 
 ## Installation
-Drop the `SshModule.dll` into your `.modules` folder. Once installed, you can start using it in your Plang code as demonstrated below.
+Drop the `SshModule.dll` into your `.modules` folder of your plang project. Once installed, you can start using it in your Plang code as demonstrated below.
 
 ## Source Code
-The source code can be found in the `Program.cs` file and is licensed under the MIT license.
+The C# source code can be found in the `Program.cs` file and is licensed under the MIT license.
 
 ## Usage
 
