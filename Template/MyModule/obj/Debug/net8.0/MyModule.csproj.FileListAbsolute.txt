@@ -1,0 +1,16 @@
+C:\Users\Ingi Gauti\source\repos\modules\Template\MyModule\bin\Debug\net8.0\MyModule.deps.json
+C:\Users\Ingi Gauti\source\repos\modules\Template\MyModule\bin\Debug\net8.0\MyModule.dll
+C:\Users\Ingi Gauti\source\repos\modules\Template\MyModule\bin\Debug\net8.0\MyModule.pdb
+C:\Users\Ingi Gauti\source\repos\modules\Template\MyModule\bin\Debug\net8.0\PLangLibrary.dll
+C:\Users\Ingi Gauti\source\repos\modules\Template\MyModule\bin\Debug\net8.0\PLangLibrary.pdb
+C:\Users\Ingi Gauti\source\repos\modules\Template\MyModule\obj\Debug\net8.0\MyModule.csproj.AssemblyReference.cache
+C:\Users\Ingi Gauti\source\repos\modules\Template\MyModule\obj\Debug\net8.0\MyModule.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ingi Gauti\source\repos\modules\Template\MyModule\obj\Debug\net8.0\MyModule.AssemblyInfoInputs.cache
+C:\Users\Ingi Gauti\source\repos\modules\Template\MyModule\obj\Debug\net8.0\MyModule.AssemblyInfo.cs
+C:\Users\Ingi Gauti\source\repos\modules\Template\MyModule\obj\Debug\net8.0\MyModule.csproj.CoreCompileInputs.cache
+C:\Users\Ingi Gauti\source\repos\modules\Template\MyModule\obj\Debug\net8.0\MyModule.sourcelink.json
+C:\Users\Ingi Gauti\source\repos\modules\Template\MyModule\obj\Debug\net8.0\MyModule.csproj.Up2Date
+C:\Users\Ingi Gauti\source\repos\modules\Template\MyModule\obj\Debug\net8.0\MyModule.dll
+C:\Users\Ingi Gauti\source\repos\modules\Template\MyModule\obj\Debug\net8.0\refint\MyModule.dll
+C:\Users\Ingi Gauti\source\repos\modules\Template\MyModule\obj\Debug\net8.0\MyModule.pdb
+C:\Users\Ingi Gauti\source\repos\modules\Template\MyModule\obj\Debug\net8.0\ref\MyModule.dll
