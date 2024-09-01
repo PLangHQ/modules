@@ -5,7 +5,7 @@ namespace MyModule
 {
 	[Description("MyModule lists out available modules")]
 	public class MyModule : BaseProgram
-	{
+	{ 
 		public record ModuleType(string module, string moduleType);
 
 		[Description("give the list of modules that are available by module name")]
