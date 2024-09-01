@@ -1,0 +1,35 @@
+name: Zip and Store Module Changes
+
+on:
+  push:
+    paths:
+      - 'PLangHQ/modules/**'  # This triggers the workflow when anything under plangHQ/modules/ changes
+
+jobs:
+  zip_and_store:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3  # This checks out your repository
+
+    - name: Detect changed directories under /plangHQ/modules
+      id: detect_changes
+      run: |
+        CHANGED_DIRS=$(git diff --name-only HEAD^ HEAD PLangHQ/modules/ | awk -F/ '{print $3}' | sort -u)
+        echo "changed_dirs=$CHANGED_DIRS" >> $GITHUB_ENV
+
+    - name: Zip changed directories
+      if: env.changed_dirs != ''
+      run: |
+        for dir in ${{ env.changed_dirs }}; do
+          zip -r ${dir}.zip PLangHQ/modules/$dir
+        done
+
+    - name: Upload zips as artifacts
+      if: env.changed_dirs != ''
+      uses: actions/upload-artifact@v3
+      with:
+        name: ${{ env.changed_dirs }}
+        path: |
+          *.zip
