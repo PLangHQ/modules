@@ -3,7 +3,7 @@ name: Zip and Store Module Changes
 on:
   push:
     paths:
-      - '**/'
+      - '**/'  # Triggers on any changes in the repository
 
 jobs:
   zip_and_store:
@@ -11,12 +11,23 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3  
-      
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 2  # Ensure that at least two commits are fetched to compare
+
     - name: Detect changed directories under the root directory
       id: detect_changes
       run: |
-        CHANGED_DIRS=$(git diff --name-only HEAD^ HEAD | awk -F/ '{print $1}' | sort -u)
+        if [ $(git rev-parse --is-shallow-repository) = true ]; then
+          git fetch --prune --unshallow
+        fi
+        
+        if [ $(git rev-list --count HEAD) -gt 1 ]; then
+          CHANGED_DIRS=$(git diff --name-only HEAD^ HEAD | awk -F/ '{print $1}' | sort -u)
+        else
+          CHANGED_DIRS=$(git diff-tree --no-commit-id --name-only -r HEAD | awk -F/ '{print $1}' | sort -u)
+        fi
+        
         echo "changed_dirs=$CHANGED_DIRS" >> $GITHUB_ENV
 
     - name: Zip changed directories
