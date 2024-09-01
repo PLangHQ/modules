@@ -3,7 +3,7 @@ name: Zip and Store Module Changes
 on:
   push:
     paths:
-      - 'PLangHQ/modules/**'  
+      - '**/'
 
 jobs:
   zip_and_store:
@@ -12,18 +12,18 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3  
-
-    - name: Detect changed directories under /plangHQ/modules
+      
+    - name: Detect changed directories under the root directory
       id: detect_changes
       run: |
-        CHANGED_DIRS=$(git diff --name-only HEAD^ HEAD PLangHQ/modules/ | awk -F/ '{print $3}' | sort -u)
+        CHANGED_DIRS=$(git diff --name-only HEAD^ HEAD | awk -F/ '{print $1}' | sort -u)
         echo "changed_dirs=$CHANGED_DIRS" >> $GITHUB_ENV
 
     - name: Zip changed directories
       if: env.changed_dirs != ''
       run: |
         for dir in ${{ env.changed_dirs }}; do
-          zip -r ${dir}.zip PLangHQ/modules/$dir
+          zip -r ${dir}.zip $dir
         done
 
     - name: Upload zips as artifacts
