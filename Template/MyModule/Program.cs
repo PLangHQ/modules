@@ -7,7 +7,7 @@ namespace MyModule
 	public class MyModule : BaseProgram
 	{ 
 		public record ModuleType(string module, string moduleType);
-
+		 
 		[Description("give the list of modules that are available by module name")]
 		public List<ModuleType> WhatModulesHave(string module)
 		{ 
