@@ -3,7 +3,7 @@ name: Zip and Store Module Changes
 on:
   push:
     paths:
-      - 'PLangHQ/modules/**'  # This triggers the workflow when anything under plangHQ/modules/ changes
+      - 'PLangHQ/modules/**'  
 
 jobs:
   zip_and_store:
@@ -11,7 +11,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3  # This checks out your repository
+      uses: actions/checkout@v3  
 
     - name: Detect changed directories under /plangHQ/modules
       id: detect_changes
