@@ -5,11 +5,13 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+	<ItemGroup>
+		<Folder Include="lib\" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="PLangLibrary">
-      <HintPath>..\..\..\plang\PLang\bin\Debug\net8.0\win-x64\PLangLibrary.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
+	<ItemGroup>
+		<Reference Include="PLangLibrary">
+			<HintPath>lib\$(RuntimeIdentifier)\PlangLibrary.dll</HintPath>
+		</Reference>
+	</ItemGroup>
 </Project>
