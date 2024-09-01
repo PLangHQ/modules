@@ -10,7 +10,7 @@ namespace MyModule
 
 		[Description("give the list of modules that are available by module name")]
 		public List<ModuleType> WhatModulesHave(string module)
-		{
+		{ 
 			List<ModuleType> modules = new();
 			modules.Add(new ModuleType("file", "MyModule.FileClass"));
 			modules.Add(new ModuleType("file", "MyModule.FileInfoClass"));
