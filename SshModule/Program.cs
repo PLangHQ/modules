@@ -71,7 +71,7 @@ namespace SshModule
 
 			if (sshClients.ContainsKey(nameOfSshClientInstance))
 			{
-				return new Error($"The ssh client with the name {nameOfSshClientInstance} already exists", FixSuggestion: "Depending on your usage, either close the connection to the ssh client before creating a new connection or add a name to your client in your step");
+				return new ProgramError($"The ssh client with the name {nameOfSshClientInstance} already exists", goalStep, function, FixSuggestion: "Depending on your usage, either close the connection to the ssh client before creating a new connection or add a name to your client in your step");
 			}
 
 
@@ -124,7 +124,7 @@ namespace SshModule
 
 			if (sshClients.ContainsKey(nameOfSftpClientInstance))
 			{
-				return new PLang.Errors.Error($"The ssh client with the name {nameOfSftpClientInstance} already exists", FixSuggestion: "Depending on your usage, either close the connection to the ssh client before creating a new connection or add a name to your client in your step");
+				return new ProgramError($"The ssh client with the name {nameOfSftpClientInstance} already exists", goalStep, function, FixSuggestion: "Depending on your usage, either close the connection to the ssh client before creating a new connection or add a name to your client in your step");
 			}
 
 
@@ -185,14 +185,14 @@ namespace SshModule
 		{
 			if (!sshClients.ContainsKey(nameOfSshClientInstance))
 			{
-				return (null, new PLang.Errors.Error($"The ssh client with the name {nameOfSshClientInstance} does not exist", FixSuggestion: "You must connect to a ssh before running this command, e.g. '- connect ssh to 127.0.0.1, username: %Settings.SshUsername%, password: %Settings.SshPassword%"));
+				return (null, new ProgramError($"The ssh client with the name {nameOfSshClientInstance} does not exist", goalStep, function, FixSuggestion: "You must connect to a ssh before running this command, e.g. '- connect ssh to 127.0.0.1, username: %Settings.SshUsername%, password: %Settings.SshPassword%"));
 			}
 
 			var client = sshClients[nameOfSshClientInstance];
 
 			if (client.SshClient == null || !client.SshClient.IsConnected)
 			{
-				return (null, new PLang.Errors.Error($"The ssh client with the name {nameOfSshClientInstance} is not connected", FixSuggestion: "Create a step in your code that connects to ssh client, e.g. '- connect ssh to 127.0.0.1, username: %Settings.SshUsername%, password: %Settings.SshPassword%"));
+				return (null, new ProgramError($"The ssh client with the name {nameOfSshClientInstance} is not connected", goalStep, function, FixSuggestion: "Create a step in your code that connects to ssh client, e.g. '- connect ssh to 127.0.0.1, username: %Settings.SshUsername%, password: %Settings.SshPassword%"));
 			}
 			client.SshClient.ErrorOccurred += (s, e) =>
 			{
@@ -203,7 +203,7 @@ namespace SshModule
 			var output = client.SshClient.RunCommand(command);
 			
 
-			if (string.IsNullOrWhiteSpace(output.Result) && !string.IsNullOrWhiteSpace(output.Error))
+			if (output.ExitStatus != 0 && !string.IsNullOrWhiteSpace(output.Error))
 			{
 				return (null, new ProgramError(output.Error, goalStep, function));
 			}
@@ -242,13 +242,13 @@ namespace SshModule
 		{
 			if (!sshClients.ContainsKey(nameOfSftpClientInstance))
 			{
-				return (null, new Error($"The ssh client with the name {nameOfSftpClientInstance} does not exist", FixSuggestion: "You must connect to a sftp before running this command, e.g. '- connect sftp to 127.0.0.1, username: %Settings.SshUsername%, password: %Settings.SshPassword%\""));
+				return (null, new ProgramError($"The ssh client with the name {nameOfSftpClientInstance} does not exist", goalStep, function, FixSuggestion: "You must connect to a sftp before running this command, e.g. '- connect sftp to 127.0.0.1, username: %Settings.SshUsername%, password: %Settings.SshPassword%\""));
 			}
 
 			var client = sshClients[nameOfSftpClientInstance].SftpClient;
 			if (client == null || !client.IsConnected)
 			{
-				return (null, new PLang.Errors.Error($"The ssh client with the name {nameOfSftpClientInstance} is not connected", FixSuggestion: "Create a step in your code that connects to ssh client, e.g. '- connect ssh to 127.0.0.1, username: %Settings.SshUsername%, password: %Settings.SshPassword%"));
+				return (null, new ProgramError($"The ssh client with the name {nameOfSftpClientInstance} is not connected", goalStep, function, FixSuggestion: "Create a step in your code that connects to ssh client, e.g. '- connect ssh to 127.0.0.1, username: %Settings.SshUsername%, password: %Settings.SshPassword%"));
 			}
 			return (client, null);
 		}

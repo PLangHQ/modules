@@ -58,6 +58,26 @@ Start
 - write out %users%
 ```
 
+## Sudo
+
+To use `sudo` with your command in a non-interactive SSH session, you can pipe the password using `echo` and the `-S` option for `sudo`. Here’s how:
+
+1. **Use `echo` to send the password**: Wrap the password in single quotes (`'`) to handle any special characters.
+2. **Pipe to `sudo -S`**: This allows `sudo` to read the password from standard input.
+
+Example:
+
+
+```plang
+- run ssh command, "echo '%Settings.SshPassword%' | sudo -S plang --version", write to %plangVersion%
+```
+
+
+In this example:
+- `echo '%Settings.SshPassword%'` sends the password.
+- `sudo -S` restarts `plang` and reads the password from standard input.
+
+
 ## Getting Help
 For assistance and more information on using the SshModule, please visit the [Plang Discussion forum](https://github.com/orgs/PLangHQ/discussions) or join the [Discord community](https://discord.gg/A8kYUymsDD).
 
