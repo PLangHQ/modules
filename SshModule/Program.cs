@@ -226,11 +226,13 @@ namespace SshModule
 
 		public async Task<IError?> UploadFile(string localFilePath, string remoteFilePath, string nameOfSftpClientInstance = "default_sftp")
 		{
+			var path = GetPath(localFilePath);
+
 			var obj = GetSftpClient(nameOfSftpClientInstance);
 			if (obj.Error != null) return obj.Error;
 
 			logger.LogTrace($"Uploading file through sftp");
-			using (var fileStream = fileSystem.FileStream.New(localFilePath, FileMode.Open))
+			using (var fileStream = fileSystem.FileStream.New(path, FileMode.Open, FileAccess.Read, FileShare.Read))
 			{
 				obj.Client.UploadFile(fileStream, remoteFilePath);
 			}
