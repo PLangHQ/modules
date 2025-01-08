@@ -211,12 +211,13 @@ namespace SshModule
 			return (output.Result, null);
 		}
 
-		public async Task<IError?> DownloadFile(string remoteFilePath, string localeFilePAth, string nameOfSftpClientInstance = "default_sftp", bool overwrite = true)
+		public async Task<IError?> DownloadFile(string remoteFilePath, string localeFilePath, string nameOfSftpClientInstance = "default_sftp", bool overwrite = true)
 		{
 			var obj = GetSftpClient(nameOfSftpClientInstance);
 			if (obj.Error != null) return obj.Error;
 
-			using (Stream fileStream = fileSystem.File.OpenWrite(localeFilePAth))
+			var path = GetPath(localeFilePath);
+			using (Stream fileStream = fileSystem.File.OpenWrite(path))
 			{
 				obj.Client.DownloadFile(remoteFilePath, fileStream);
 			}
